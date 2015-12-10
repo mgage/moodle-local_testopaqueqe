@@ -27,3 +27,4 @@ defined('MOODLE_INTERNAL') || die;
 
 $plugin->version  = 2011082200;
 $plugin->requires = 2011070101;
+$plugin->component = 'test_opaque';
