@@ -144,11 +144,16 @@ class local_testopaqueqe_engine {
         $this->handle_special_from_questionid($questionid, $questionversion, 'start');
 
         $initparams = array_combine($paramNames, $paramValues);
-
+ 		//error_log( "paramNames,  then paramValues");
+        //error_log( ($paramNames);
+        //error_log( $paramValues);
+        
         $return = new local_testopaqueqe_start_return($questionid, $questionversion,
                 !empty($initparams['display_readonly']));
 
         $return->XHTML = $this->get_html($return->questionSession, 1, $initparams);
+        //$return->XHTML = ($return->XHTML)."paramNames and then paramValues "
+        //.print_r($paramNames, true). " values ". print_r($paramValues, true);
         $return->CSS = $this->get_css();
         $return->progressInfo = "Try 1";
         $return->addResource(local_testopaqueqe_resource::make_from_file(
@@ -169,7 +174,6 @@ class local_testopaqueqe_engine {
         global $CFG;
 
         $params = array_combine($names, $values);
-
         $this->handle_special_from_process($params);
 
         if (isset($params['try'])) {
